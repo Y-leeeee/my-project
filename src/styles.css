@@ -1,0 +1,58 @@
+body {
+  text-align: center;
+  border-color: gray;
+}
+.weather-app {
+  border: 1px solid #d8d7d7;
+  margin: 20px auto;
+  max-width: 400px;
+  padding-bottom: 30px;
+  border-radius: 15px;
+}
+
+.change-city {
+  padding-top: 50px;
+}
+
+.city-name {
+  position: relative;
+  bottom: -3px;
+}
+
+.city {
+  color: #00204a;
+  font-family: "Russo One", sans-serif;
+  font-size: 50px;
+  padding-top: 20px;
+}
+
+.current-time,
+.details,
+.temperature-now,
+.row {
+  font-family: "Saira Condensed", sans-serif;
+  color: #1b3764;
+}
+.units {
+  font-size: 10px;
+}
+
+.emoji-now {
+  font-size: 40px;
+}
+.details {
+  padding-bottom: 20px;
+}
+.row {
+  padding-top: 10px;
+}
+
+#date {
+  position: relative;
+  left: 250px;
+}
+
+#temp {
+  position: relative;
+  right: 250px;
+}
