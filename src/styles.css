@@ -2,6 +2,10 @@ body {
   text-align: center;
   border-color: gray;
 }
+.container {
+  text-align: center;
+}
+
 .weather-app {
   border: 1px solid #d8d7d7;
   margin: 20px auto;
