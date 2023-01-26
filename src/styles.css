@@ -43,12 +43,14 @@ body {
   font-size: 10px;
 }
 
-.emoji-now {
-  font-size: 40px;
+.icon-element {
+  padding: 0;
+  margin: 0;
 }
+
 .details {
   padding-bottom: 20px;
-  padding-top: 10px;
+  padding-top: 0;
 }
 .row {
   padding-top: 10px;
@@ -66,4 +68,8 @@ body {
 small {
   position: relative;
   top: -20px;
+}
+
+.description {
+  text-transform: capitalize;
 }

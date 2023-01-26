@@ -27,7 +27,6 @@ ${day} ${hour}:${minut}`;
 //Feature #2
 function displayNewData(response) {
   document.querySelector(".city").innerHTML = response.data.city;
-
   document.querySelector(".temperature-now").innerHTML = Math.round(
     response.data.temperature.current
   );
@@ -37,7 +36,15 @@ function displayNewData(response) {
   document.querySelector(".wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )}km/h`;
+  document.querySelector(".description").innerHTML =
+    response.data.condition.description;
+  let iconElement = document.querySelector(".icon-element");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
+
 function search(city) {
   let apiKey = "bdb603847ff33c6odd47b612a380tf56";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
