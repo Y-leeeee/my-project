@@ -1,4 +1,3 @@
-//Feature #1
 let currentTime = document.querySelector(".current-time");
 let now = new Date();
 let days = [
@@ -24,7 +23,6 @@ if (minut < 10) {
 currentTime.innerHTML = `Last update : 
 ${day} ${hour}:${minut}`;
 
-//Feature #2
 function displayNewData(response) {
   document.querySelector(".city").innerHTML = response.data.city;
   document.querySelector(".temperature-now").innerHTML = Math.round(
@@ -32,8 +30,8 @@ function displayNewData(response) {
   );
   document.querySelector(
     ".humidity"
-  ).innerHTML = `${response.data.temperature.humidity}%`;
-  document.querySelector(".wind").innerHTML = `${Math.round(
+  ).innerHTML = `Humidity: ${response.data.temperature.humidity}%`;
+  document.querySelector(".wind").innerHTML = `Wind: ${Math.round(
     response.data.wind.speed
   )}km/h`;
   document.querySelector(".description").innerHTML =
@@ -43,12 +41,12 @@ function displayNewData(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+  ctemp = response.data.temperature.current;
 }
 
 function search(city) {
   let apiKey = "bdb603847ff33c6odd47b612a380tf56";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayNewData);
 }
 
@@ -67,29 +65,29 @@ function searchCurrent(position) {
   axios.get(apiUrl).then(displayNewData);
 }
 
+function displayFtemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature-now");
+  let ftemp = (ctemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(ftemp);
+}
+
+function displayCtemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature-now");
+  temperatureElement.innerHTML = Math.round(ctemp);
+}
+let ctemp = null;
 let searchCity = document.querySelector(".change-city");
 searchCity.addEventListener("submit", changeCity);
 
 let currentButton = document.querySelector("#current-city-btn");
 currentButton.addEventListener("click", changeCurrent);
 
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFtemp);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCtemp);
+
 search("jeju");
-
-//Bonus feature
-
-/*function changeTempC(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector(".temperature-now");
-  currentTemp.innerHTML = -10;
-}
-let tempC = document.querySelector("#celsius");
-tempC.addEventListener("click", changeTempC);
-
-function changeTempF(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector(".temperature-now");
-  currentTemp.innerHTML = 4;
-}
-
-let tempF = document.querySelector("#fahrenheit");
-tempF.addEventListener("click", changeTempF);*/

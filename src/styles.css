@@ -34,18 +34,29 @@ body {
 .current-time,
 .details,
 .temperature-now,
-.row {
+.row,
+.description {
   font-family: "Saira Condensed", sans-serif;
   color: #1b3764;
 }
 
-.units {
-  font-size: 10px;
+.temperature-now {
+  font-size: 50px;
 }
-
-.icon-element {
-  padding: 0;
-  margin: 0;
+#fahrenheit,
+#celsius {
+  font-size: 20px;
+  text-decoration: none;
+  cursor: default;
+  color: black;
+}
+#fahrenheit:hover,
+#celsius:hover {
+  color: gray;
+}
+.units {
+  position: relative;
+  top: -20px;
 }
 
 .details {
