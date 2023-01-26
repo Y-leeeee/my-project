@@ -21,23 +21,27 @@ if (hour < 10) {
 if (minut < 10) {
   minut = `0${minut}`;
 }
-currentTime.innerHTML = `${day} ${hour}:${minut}`;
+currentTime.innerHTML = `Last update : 
+${day} ${hour}:${minut}`;
 
 //Feature #2
 function displayNewData(response) {
-  console.log(response.data);
-  document.querySelector(".city").innerHTML = response.data.name;
+  document.querySelector(".city").innerHTML = response.data.city;
+
   document.querySelector(".temperature-now").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
-  document.querySelector(".humidity").innerHTML = response.data.main.humidity;
-  document.querySelector(".wind").innerHTML = Math.round(
+  document.querySelector(
+    ".humidity"
+  ).innerHTML = `${response.data.temperature.humidity}%`;
+  document.querySelector(".wind").innerHTML = `${Math.round(
     response.data.wind.speed
-  );
+  )}km/h`;
 }
 function search(city) {
-  let apiKey = "6d68aadfacdd4f5163bc273049a0cf2d";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "bdb603847ff33c6odd47b612a380tf56";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(displayNewData);
 }
 
@@ -51,8 +55,8 @@ function changeCurrent(event) {
   navigator.geolocation.getCurrentPosition(searchCurrent);
 }
 function searchCurrent(position) {
-  let apiKey = "9e0fb79c2f66d0cd0dcf06710976a873";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "bdb603847ff33c6odd47b612a380tf56";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coordinates.longitude}&lat=${position.coordinates.latitude}&key=${apiKey}`;
   axios.get(apiUrl).then(displayNewData);
 }
 

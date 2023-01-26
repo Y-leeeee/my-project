@@ -15,7 +15,7 @@ body {
 }
 
 .change-city {
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .city-name {
@@ -28,6 +28,7 @@ body {
   font-family: "Russo One", sans-serif;
   font-size: 50px;
   padding-top: 20px;
+  margin-bottom: 0;
 }
 
 .current-time,
@@ -37,6 +38,7 @@ body {
   font-family: "Saira Condensed", sans-serif;
   color: #1b3764;
 }
+
 .units {
   font-size: 10px;
 }
@@ -46,6 +48,7 @@ body {
 }
 .details {
   padding-bottom: 20px;
+  padding-top: 10px;
 }
 .row {
   padding-top: 10px;
@@ -59,4 +62,8 @@ body {
 #temp {
   position: relative;
   right: 250px;
+}
+small {
+  position: relative;
+  top: -20px;
 }
