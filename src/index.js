@@ -24,6 +24,7 @@ currentTime.innerHTML = `Last update :
 ${day} ${hour}:${minut}`;
 
 function displayNewData(response) {
+  console.log(response.data);
   document.querySelector(".city").innerHTML = response.data.city;
   document.querySelector(".temperature-now").innerHTML = Math.round(
     response.data.temperature.current
@@ -61,7 +62,7 @@ function changeCurrent(event) {
 }
 function searchCurrent(position) {
   let apiKey = "bdb603847ff33c6odd47b612a380tf56";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coordinates.longitude}&lat=${position.coordinates.latitude}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`;
   axios.get(apiUrl).then(displayNewData);
 }
 
