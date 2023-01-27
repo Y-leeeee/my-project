@@ -1,6 +1,7 @@
 body {
   text-align: center;
   border-color: gray;
+  font-family: "Roboto", sans-serif;
 }
 .container {
   text-align: center;
@@ -25,7 +26,7 @@ body {
 
 .city {
   color: #00204a;
-  font-family: "Russo One", sans-serif;
+
   font-size: 50px;
   padding-top: 20px;
   margin-bottom: 0;
@@ -36,7 +37,6 @@ body {
 .temperature-now,
 .row,
 .description {
-  font-family: "Saira Condensed", sans-serif;
   color: #1b3764;
 }
 

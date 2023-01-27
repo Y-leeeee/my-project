@@ -24,7 +24,6 @@ currentTime.innerHTML = `Last update :
 ${day} ${hour}:${minut}`;
 
 function displayNewData(response) {
-  console.log(response.data);
   document.querySelector(".city").innerHTML = response.data.city;
   document.querySelector(".temperature-now").innerHTML = Math.round(
     response.data.temperature.current
