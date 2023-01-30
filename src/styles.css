@@ -63,18 +63,29 @@ body {
   padding-bottom: 20px;
   padding-top: 0;
 }
-.row {
+.weather-forcast {
   padding-top: 10px;
+  text-align: center;
 }
 
-#date {
+.weatherforcast-date {
   position: relative;
-  left: 250px;
+  left: -100px;
 }
 
-#temp {
+.weatherforcast-temp {
   position: relative;
-  right: 250px;
+  right: -100px;
+  top: -65px;
+}
+.weather-forcast-icon {
+  position: relative;
+  top: -32px;
+  left: 5px;
+}
+.min-temp {
+  position: relative;
+  left: 10px;
 }
 small {
   position: relative;
