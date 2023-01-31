@@ -23,6 +23,34 @@ if (minut < 10) {
 currentTime.innerHTML = `Last update : 
 ${day} ${hour}:${minut}`;
 
+function displayForcast() {
+  let forcastElemnet = document.querySelector("#forcast");
+  let forcastHTML = "";
+  let days = ["Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `<div class="row">
+            <div class="col">
+              <div class="weatherforcast-date">${day}</div>
+              <img
+                src="http://openweathermap.org/img/wn/50d@2x.png"
+                alt=""
+                class="weather-forcast-icon"
+                width="42"
+              />
+              <div class="weatherforcast-temp">
+                <span class="max-temp"> -8</span
+                ><span class="min-temp"> 0</span>
+              </div>
+            </div>
+            </div>
+  
+          `;
+  });
+
+  forcastElemnet.innerHTML = forcastHTML;
+}
 function displayNewData(response) {
   document.querySelector(".city").innerHTML = response.data.city;
   document.querySelector(".temperature-now").innerHTML = Math.round(
@@ -91,3 +119,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCtemp);
 
 search("jeju");
+displayForcast();
