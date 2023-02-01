@@ -23,7 +23,8 @@ if (minut < 10) {
 currentTime.innerHTML = `Last update : 
 ${day} ${hour}:${minut}`;
 
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response.data);
   let forcastElemnet = document.querySelector("#forcast");
   let forcastHTML = "";
   let days = ["Mon", "Tue", "Wed"];
@@ -51,7 +52,16 @@ function displayForcast() {
 
   forcastElemnet.innerHTML = forcastHTML;
 }
+
+function getForcast(coordinates) {
+  let apiKey = "bdb603847ff33c6odd47b612a380tf56";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForcast);
+}
+
 function displayNewData(response) {
+  console.log(response.data);
   document.querySelector(".city").innerHTML = response.data.city;
   document.querySelector(".temperature-now").innerHTML = Math.round(
     response.data.temperature.current
@@ -70,6 +80,7 @@ function displayNewData(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   ctemp = response.data.temperature.current;
+  getForcast(response.data.coordinates);
 }
 
 function search(city) {
@@ -80,8 +91,8 @@ function search(city) {
 
 function changeCity(event) {
   event.preventDefault();
-  let city = document.querySelector(".city-name").value;
-  search(city);
+  let city = document.querySelector(".city-name");
+  search(city.value);
 }
 
 function changeCurrent(event) {
@@ -119,4 +130,3 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCtemp);
 
 search("jeju");
-displayForcast();
