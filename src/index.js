@@ -23,41 +23,59 @@ if (minut < 10) {
 currentTime.innerHTML = `Last update : 
 ${day} ${hour}:${minut}`;
 
-function displayForcast(response) {
-  console.log(response.data);
-  let forcastElemnet = document.querySelector("#forcast");
-  let forcastHTML = "";
-  let days = ["Mon", "Tue", "Wed"];
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `<div class="row">
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  let forecastElemnet = document.querySelector("#forecast");
+  let forecastHTML = "";
+
+  function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[day];
+  }
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="row">
             <div class="col">
-              <div class="weatherforcast-date">${day}</div>
+              <div class="weatherforecast-date">${formatDay(
+                forecastDay.time
+              )}</div>
               <img
-                src="http://openweathermap.org/img/wn/50d@2x.png"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                  forecastDay.condition.icon
+                }.png"
                 alt=""
-                class="weather-forcast-icon"
+                class="weather-forecast-icon"
                 width="42"
               />
-              <div class="weatherforcast-temp">
-                <span class="max-temp"> -8</span
-                ><span class="min-temp"> 0</span>
+              <div class="weatherforecast-temp">
+                <span class="max-temp"> ${Math.round(
+                  forecastDay.temperature.maximum
+                )}°</span
+                ><span class="min-temp">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
               </div>
             </div>
             </div>
   
           `;
+    }
   });
 
-  forcastElemnet.innerHTML = forcastHTML;
+  forecastElemnet.innerHTML = forecastHTML;
 }
 
-function getForcast(coordinates) {
+function getForecast(coordinates) {
   let apiKey = "bdb603847ff33c6odd47b612a380tf56";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
   console.log(apiUrl);
-  axios.get(apiUrl).then(displayForcast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayNewData(response) {
@@ -80,7 +98,7 @@ function displayNewData(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   ctemp = response.data.temperature.current;
-  getForcast(response.data.coordinates);
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {

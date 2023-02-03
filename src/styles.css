@@ -67,22 +67,22 @@ body {
   line-height: 0;
 }
 
-.weather-forcast {
+.weather-forecast {
   padding-top: 10px;
   text-align: center;
 }
 
-.weatherforcast-date {
+.weatherforecast-date {
   position: relative;
   left: -100px;
 }
 
-.weatherforcast-temp {
+.weatherforecast-temp {
   position: relative;
   right: -100px;
   top: -43px;
 }
-.weather-forcast-icon {
+.weather-forecast-icon {
   position: relative;
   top: -25px;
   left: 5px;
