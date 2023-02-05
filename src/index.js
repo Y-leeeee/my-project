@@ -20,7 +20,7 @@ if (hour < 10) {
 if (minut < 10) {
   minut = `0${minut}`;
 }
-currentTime.innerHTML = `Last update : 
+currentTime.innerHTML = `Last update at 
 ${day} ${hour}:${minut}`;
 
 function displayForecast(response) {
@@ -114,6 +114,7 @@ function changeCity(event) {
 }
 
 function changeCurrent(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchCurrent);
 }
 function searchCurrent(position) {

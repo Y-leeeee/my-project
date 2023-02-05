@@ -13,6 +13,7 @@ body {
   max-width: 400px;
   padding-bottom: 30px;
   border-radius: 15px;
+  background-image: url("https://images.unsplash.com/photo-1558486012-817176f84c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=740&q=80");
 }
 
 .change-city {
