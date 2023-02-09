@@ -28,7 +28,7 @@ body {
   position: relative;
   bottom: -1px;
   height: 35px;
-  border: 2px;
+  border: none;
   background-color: transparent;
   outline: none;
   border-bottom: 1px solid gray;
