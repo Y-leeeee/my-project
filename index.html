@@ -29,10 +29,15 @@
       <div class="weather-app">
         <form class="change-city">
           <input type="text" class="city-name" placeholder="Type a city" />
-          <input type="submit" class="btn btn-dark" value="Search" />
           <input
             type="submit"
-            class="btn btn-secondary"
+            class="btn btn-outline-dark"
+            id="search-button"
+            value="Search"
+          />
+          <input
+            type="submit"
+            class="btn btn-outline-dark"
             id="current-city-btn"
             value="Current"
           />
@@ -57,46 +62,14 @@
         </div>
 
         <div class="weather-forecast" id="forecast"></div>
-
-        <!--<div class="row">
-          <div class="col" id="date">Fri</div>
-          <div class="col">💨</div>
-          <div class="col" id="temp">-10</div>
-        </div>
-
-        <div class="row">
-          <div class="col" id="date">Sat</div>
-          <div class="col">☀️</div>
-          <div class="col" id="temp">-7</div>
-        </div>
-
-        <div class="row">
-          <div class="col" id="date">Sun</div>
-          <div class="col">☀️</div>
-          <div class="col" id="temp">-5</div>
-        </div>
-
-        <div class="row">
-          <div class="col" id="date">Mon</div>
-          <div class="col">☁️</div>
-          <div class="col" id="temp">-4</div>
-        </div>
-
-        <div class="row">
-          <div class="col" id="date">Tue</div>
-          <div class="col">☀️</div>
-          <div class="col" id="temp">-3</div>
-        </div>
-
-        <div class="row">
-          <div class="col" id="date">Wed</div>
-          <div class="col">🌥️</div>
-          <div class="col" id="temp">-3</div>
-        </div>-->
       </div>
 
       <small>
-        <a href="https://github.com/Y-leeeee/my-project" target="_blank">
+        <a
+          href="https://github.com/Y-leeeee/my-project"
+          id="source-link"
+          target="_blank"
+        >
           Open-source code,</a
         >
         by Youri Lee</small

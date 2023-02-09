@@ -80,6 +80,7 @@ function getForecast(coordinates) {
 
 function displayNewData(response) {
   console.log(response.data);
+  console.log(response.data.condition.description);
   document.querySelector(".city").innerHTML = response.data.city;
   document.querySelector(".temperature-now").innerHTML = Math.round(
     response.data.temperature.current
@@ -135,6 +136,7 @@ function displayCtemp(event) {
   let temperatureElement = document.querySelector(".temperature-now");
   temperatureElement.innerHTML = Math.round(ctemp);
 }
+
 let ctemp = null;
 let searchCity = document.querySelector(".change-city");
 searchCity.addEventListener("submit", changeCity);

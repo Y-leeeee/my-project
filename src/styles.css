@@ -2,18 +2,22 @@ body {
   text-align: center;
   border-color: gray;
   font-family: "Roboto", sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1463947628408-f8581a2f4aca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-size: cover;
 }
+
 .container {
   text-align: center;
 }
 
 .weather-app {
-  border: 1px solid #d8d7d7;
   margin: 20px auto;
-  max-width: 400px;
+  max-width: 450px;
   padding-bottom: 30px;
   border-radius: 15px;
-  background-image: url("https://images.unsplash.com/photo-1558486012-817176f84c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=740&q=80");
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4.5px);
+  margin-top: 100px;
 }
 
 .change-city {
@@ -22,12 +26,23 @@ body {
 
 .city-name {
   position: relative;
-  bottom: -3px;
+  bottom: -1px;
+  height: 35px;
+  border: 2px;
+  background-color: transparent;
+  outline: none;
+  border-bottom: 1px solid gray;
+}
+#search-button,
+#current-city-btn {
+  border-radius: 6px;
+  background-color: transparent;
+  outline: none;
+  border: 2px;
 }
 
 .city {
   color: #00204a;
-
   font-size: 50px;
   padding-top: 20px;
   margin-bottom: 0;
@@ -96,7 +111,30 @@ small {
   position: relative;
   top: -20px;
 }
+#source-link {
+  text-decoration: none;
+}
 
 .description {
   text-transform: capitalize;
+}
+
+.clearSky {
+  background-image: "src/clearsky.jpg";
+}
+
+.fewClouds {
+  background-image: "src/fewclouds.jpg";
+}
+
+.brokenClouds {
+  background-image: "src/broeknClouds.jpg";
+}
+
+.rainyDay {
+  background-image: "src/rain.jpg";
+}
+
+.snowing {
+  background-image: "src/snowing.jpg";
 }
