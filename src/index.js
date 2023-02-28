@@ -14,15 +14,6 @@ let day = days[now.getDay()];
 let hour = now.getHours();
 let minut = now.getMinutes();
 
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-if (minut < 10) {
-  minut = `0${minut}`;
-}
-currentTime.innerHTML = `Last update at 
-${day} ${hour}:${minut}`;
-
 function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
